@@ -1,19 +1,13 @@
 package com.example.demo;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-
 import org.springframework.stereotype.Component;
-
-import io.swagger.annotations.Api;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Component
-@Path("/manual")
-@Api(description = "the manual API")
+@RequestMapping("/manual")
 public class MyEndpoint {
-	@GET
-	@Produces({ "application/json" })
+	@GetMapping(produces = "application/json")
 	public Model message() {
 		Model hello = new Model();
 		hello.setName("Hello");
