@@ -4,6 +4,15 @@ info:
   title: Generated API
   version: "1.0"
 paths:
+  /:
+    get:
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Model'
   /application.wadl:
     get:
       responses:
@@ -20,20 +29,10 @@ paths:
       responses:
         "200":
           description: OK
-  /swagger:
-    get:
-      responses:
-        "200":
-          description: OK
-  /swagger.{type}:
-    get:
-      parameters:
-      - name: type
-        in: path
-        required: true
-        schema:
-          pattern: json|yaml
+components:
+  schemas:
+    Model:
+      type: object
+      properties:
+        name:
           type: string
-      responses:
-        "200":
-          description: OK
