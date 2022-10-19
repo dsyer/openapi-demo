@@ -12,7 +12,7 @@ public class MyJerseyConfig extends ResourceConfig {
 	public MyJerseyConfig() {
 		register(MyEndpoint.class);
 		packages("io.swagger.jaxrs.listing",
-				"com.example.demo.api");
+		"com.example.demo");
 		register(ApiListingResource.class);
 		register(SwaggerSerializers.class);
 	}

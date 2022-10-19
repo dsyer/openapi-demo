@@ -6,8 +6,11 @@ import javax.ws.rs.Produces;
 
 import org.springframework.stereotype.Component;
 
+import io.swagger.annotations.Api;
+
 @Component
 @Path("/")
+@Api(description = "the manual API")
 public class MyEndpoint {
 	@GET
 	@Produces({ "application/json" })
