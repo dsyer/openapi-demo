@@ -97,7 +97,8 @@
 								<hideGenerationTimestamp>true</hideGenerationTimestamp>
 								<useBeanValidation>true</useBeanValidation>
 								<sourceFolder>src/main/java</sourceFolder>
-								<dateLibrary>java8</dateLibrary>
+								<configPackage>com.example.demo.config</configPackage>
+								<interfaceOnly>true</interfaceOnly>
 							</configOptions>
 						</configuration>
 					</execution>
