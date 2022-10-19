@@ -34,7 +34,7 @@ public class DemoApplication {
 							.name("")
 							.url("http://unlicense.org"));
 
-			Swagger swagger = new Swagger().info(info);
+			Swagger swagger = new Swagger().info(info).host("http://localhost:8080");
 			swagger.setSwagger("3.0");
 
 			new SwaggerContextService().withConfigId("default").updateSwagger(swagger);

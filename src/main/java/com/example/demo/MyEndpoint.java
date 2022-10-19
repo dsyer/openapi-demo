@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import io.swagger.annotations.Api;
 
 @Component
-@Path("/")
+@Path("/manual")
 @Api(description = "the manual API")
 public class MyEndpoint {
 	@GET
