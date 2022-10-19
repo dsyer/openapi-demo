@@ -47,6 +47,7 @@
 			<plugin>
 				<artifactId>smallrye-open-api-maven-plugin</artifactId>
 				<groupId>io.smallrye</groupId>
+				<version>3.1.0-RC2</version>
 				<executions>
 					<execution>
 						<goals>
@@ -55,14 +56,13 @@
 					</execution>
 				</executions>
 			</plugin>
-
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>4.1.3</version>
+				<version>6.2.0</version>
 				<executions>
 					<execution>
-						<phase>package</phase>
+						<phase>generate-sources</phase>
 						<goals>
 							<goal>generate</goal>
 						</goals>
@@ -70,7 +70,7 @@
 							<apiPackage>com.example.demo.api</apiPackage>
 							<modelPackage>com.example.demo.model</modelPackage>
 							<inputSpec>${project.basedir}/openapi.yaml</inputSpec>
-							<language>jaxrs-jersey</language>
+							<generatorName>jaxrs-jersey</generatorName>
 							<configOptions>
 								<performBeanValidation>true</performBeanValidation>
 								<hideGenerationTimestamp>true</hideGenerationTimestamp>
