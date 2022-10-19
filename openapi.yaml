@@ -13,39 +13,6 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Model'
-  /application.wadl:
-    get:
-      responses:
-        "200":
-          description: OK
-  /application.wadl/{path}:
-    get:
-      parameters:
-      - name: path
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-  /swagger:
-    get:
-      responses:
-        "200":
-          description: OK
-  /swagger.{type}:
-    get:
-      parameters:
-      - name: type
-        in: path
-        required: true
-        schema:
-          pattern: json|yaml
-          type: string
-      responses:
-        "200":
-          description: OK
 components:
   schemas:
     Model:
