@@ -68,6 +68,14 @@
 				<configuration>
 					<mainClass>com.example.demo.DemoApplication</mainClass>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>start</goal>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>smallrye-open-api-maven-plugin</artifactId>
@@ -77,6 +85,19 @@
 					<execution>
 						<goals>
 							<goal>generate-schema</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<goals>
+							<goal>generate</goal>
 						</goals>
 					</execution>
 				</executions>
