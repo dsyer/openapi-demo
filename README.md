@@ -25,6 +25,6 @@ You can view the OpenAPI v3 specification here:
 http://localhost:8080/v3/api-docs
 ```
 
-The Swagger UI is served from http://localhost:8080. Note that if you have configured the `host` to be something other than localhost, the calls through swagger-ui will be directed to that host and not localhost!
+The Swagger UI is served from hhttp://localhost:8080/swagger-ui/index.html. Note that if you have configured the `host` to be something other than localhost, the calls through swagger-ui will be directed to that host and not localhost!
 
 OpenAPI specs can also be generated using the [Spring Docs Plugin](https://springdoc.org/plugins.html) during integration testing (`mvn verify`). The `openapi.json` shows up in `target` directory, and includes all the Spring endpoints (`/manual` and `/generated`).
