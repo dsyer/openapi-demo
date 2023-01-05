@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.example.demo.api.GeneratedApi;
-import com.example.demo.model.Model;
+import com.example.demo.api.Model;
 
 @Controller
 public class StandardGeneratedApi implements GeneratedApi {

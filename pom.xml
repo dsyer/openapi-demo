@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -28,6 +30,11 @@
 			<groupId>io.swagger.core.v3</groupId>
 			<artifactId>swagger-annotations</artifactId>
 			<version>2.2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.6.9</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
@@ -105,33 +112,63 @@
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>6.2.1</version>
+				<version>6.3.0-SNAPSHOT</version>
 				<executions>
 					<execution>
+						<id>openapi-server</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<apiPackage>com.example.demo.api</apiPackage>
-							<modelPackage>com.example.demo.model</modelPackage>
-							<invokerPackage>com.example.demo.app</invokerPackage>
-							<inputSpec>${project.basedir}/openapi.yaml</inputSpec>
 							<generatorName>spring</generatorName>
+							<apiPackage>com.example.demo.api</apiPackage>
+							<modelPackage>com.example.demo.api</modelPackage>
+							<invokerPackage>com.example.demo.api</invokerPackage>
 							<configOptions>
 								<useSpringBoot3>true</useSpringBoot3>
-								<performBeanValidation>true</performBeanValidation>
-								<hideGenerationTimestamp>true</hideGenerationTimestamp>
-								<useBeanValidation>true</useBeanValidation>
-								<sourceFolder>src/main/java</sourceFolder>
-								<configPackage>com.example.demo.config</configPackage>
 								<interfaceOnly>true</interfaceOnly>
 							</configOptions>
 						</configuration>
 					</execution>
+					<execution>
+						<id>openapi-client</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<generatorName>java</generatorName>
+							<apiPackage>com.example.demo.client</apiPackage>
+							<modelPackage>com.example.demo.client</modelPackage>
+							<invokerPackage>com.example.demo.client</invokerPackage>
+							<configOptions>
+								<useJakartaEe>true</useJakartaEe>
+								<library>resttemplate</library>
+							</configOptions>
+						</configuration>
+					</execution>
 				</executions>
+				<configuration>
+					<inputSpec>${project.basedir}/openapi.yaml</inputSpec>
+					<configOptions>
+						<performBeanValidation>true</performBeanValidation>
+						<hideGenerationTimestamp>true</hideGenerationTimestamp>
+						<useBeanValidation>true</useBeanValidation>
+						<sourceFolder>src/main/java</sourceFolder>
+						<configPackage>com.example.demo.config</configPackage>
+					</configOptions>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>sonatype</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots><enabled>true</enabled></snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
 </project>
