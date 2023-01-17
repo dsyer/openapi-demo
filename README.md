@@ -25,8 +25,25 @@ You can view the OpenAPI v3 specification here:
 http://localhost:8080/v3/api-docs
 ```
 
-The Swagger UI is served from hhttp://localhost:8080/swagger-ui/index.html. Note that if you have configured the `host` to be something other than localhost, the calls through swagger-ui will be directed to that host and not localhost!
+The Swagger UI is served from http://localhost:8080/swagger-ui/index.html. Note that if you have configured the `host` to be something other than localhost, the calls through swagger-ui will be directed to that host and not localhost! There's also a hosted Swagger editor: https://editor.swagger.io/ (and https://editor-next.swagger.io/). Can be used to generate basic server and client.
 
 OpenAPI specs can also be generated using the [Spring Docs Plugin](https://springdoc.org/plugins.html) during integration testing (`mvn verify`). The `openapi.json` shows up in `target` directory, and includes all the Spring endpoints (`/manual` and `/generated`).
 
 The app compiles to a native image and all the JSON endpoints work, including the OpenAPI specification. The Swagger UI does not work.
+
+
+## Linting
+
+```
+$ npm install @stoplight/spectral-cli
+$ npx spectral lint openapi.yaml 
+...
+ 1:1  warning  oas3-api-servers       OpenAPI "servers" must be present and non-empty array.
+ 3:6  warning  info-contact           Info object must have "contact" object.                        info
+ 3:6  warning  info-description       Info "description" must be present and non-empty string.       info
+ 8:9  warning  operation-description  Operation "description" must be present and non-empty string.  paths./generated.get
+ 8:9  warning  operation-operationId  Operation must have "operationId".                             paths./generated.get
+ 8:9  warning  operation-tags         Operation must have non-empty "tags" array.                    paths./generated.get
+
+✖ 6 problems (0 errors, 6 warnings, 0 infos, 0 hints)
+```
