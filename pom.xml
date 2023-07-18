@@ -107,7 +107,7 @@
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>6.3.0-SNAPSHOT</version>
+				<version>6.6.0</version>
 				<executions>
 					<execution>
 						<id>openapi-server</id>
@@ -162,7 +162,9 @@
 		<pluginRepository>
 			<id>sonatype</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<snapshots><enabled>true</enabled></snapshots>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 
