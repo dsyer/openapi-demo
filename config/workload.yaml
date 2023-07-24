@@ -1,0 +1,23 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: openapi-demo
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    apis.apps.tanzu.vmware.com/register-api: "true"
+    app.kubernetes.io/part-of: app
+spec:
+  image: dsyer/openapi-demo
+  env:
+    - name: SPRING_APPLICATION_JSON
+      value: '{"logging.level.org.springframework.web":"trace"}'
+  params:
+  - name: api_descriptor
+    value:
+      type: openapi
+      location:
+        baseURL: http://openapi-demo.developer-ns/
+        path: "/v3/api-docs"
+      owner: default-team
+      system: app
+      description: "openapi-demo"
