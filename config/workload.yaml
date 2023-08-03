@@ -16,7 +16,6 @@ spec:
     value:
       type: openapi
       location:
-        baseURL: https://openapi-demo.developer-ns.tap-choice-bluebird.tapsandbox.com
         path: "/v3/api-docs"
       owner: default-team
       system: app
